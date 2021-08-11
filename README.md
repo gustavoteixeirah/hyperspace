@@ -1,1 +1,1 @@
-# Arch Installation Scripts
+# Arch Installation & Scripts

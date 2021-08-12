@@ -1,5 +1,5 @@
 # Xorg
-sudo pacman -S --noconfirm xorg xorg-xinit xorg-prop
+sudo pacman -S --noconfirm xorg xorg-xinit xorg-prop xorg-xrandr
 cp /etc/X11/xinit/xinitrc .xinitrc
 
 # Fonts

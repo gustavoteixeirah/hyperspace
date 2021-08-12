@@ -10,10 +10,14 @@ sudo pacman -S nitrogen
 
 # Audio
 sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol
+yay spotify
 
 # Tools
 sudo pacman -S curl wget
 
+# Development tools
+yay archlinux-java
+sudo pacman -S jdk11-openjdk jdk8-openjdk maven
 # git clone https://aur.archlinux.org/brave-bin.git
 # cd brave-bin
 # makepkg -si
@@ -21,3 +25,4 @@ sudo pacman -S curl wget
 # yay visual-studio-code-bin
 
 # setxkbmap br
+

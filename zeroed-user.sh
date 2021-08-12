@@ -13,7 +13,7 @@ sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol
 yay spotify
 
 # Tools
-sudo pacman -S curl wget
+sudo pacman -S curl wget zip unzip
 
 # Development tools
 yay archlinux-java

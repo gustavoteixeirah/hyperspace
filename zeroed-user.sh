@@ -3,7 +3,7 @@ pacman -S --noconfirm xorg xorg-xinit xorg-xprop xorg-xrandr xorg-server nvidia 
 cp /etc/X11/xinit/xinitrc .xinitrc
 
 # Second
-sudo pacman -S i3-gaps i3status dmenu picom firefox terminator git nitrogen pulseaudio pulseaudio-alsa pavucontrol 
+sudo pacman -S i3-gaps i3status dmenu picom firefox terminator git feh pulseaudio pulseaudio-alsa pavucontrol 
  vim .xinitrc
  delete last five lines
  append "exec i3"
@@ -24,15 +24,16 @@ sudo pacman -S i3-gaps i3status dmenu picom firefox terminator git nitrogen puls
 
  yay archlinux-java spotify visual-studio-code-bin
 sudo pacman -S jdk11-openjdk jdk8-openjdk maven
- 
- 
- 
- 
+
+ # Resolution tool
+sudo pacman -S arandr
+
+sudo chmod +x .config/screenlayout/dualmonitor.sh
+
  Verificar...
  https://github.com/loeken/dotfiles/blob/master/i3/config
- 
- 
- 
+
+
 
 # Fonts
 sudo pacman -S --noconfirm firefox dina-font tamsyn-font bdf-unifont ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji

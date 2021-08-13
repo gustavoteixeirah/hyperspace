@@ -22,8 +22,8 @@ sudo pacman -S i3-gaps i3status dmenu picom firefox terminator git nitrogen puls
  # https://github.com/polybar/polybar/wiki#launching-the-bar-in-your-wms-bootstrap-routine
  sudo chmod +x .config/polybar/launch.sh
 
-
-
+ yay archlinux-java spotify visual-studio-code-bin
+sudo pacman -S jdk11-openjdk jdk8-openjdk maven
  
  
  

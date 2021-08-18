@@ -50,14 +50,8 @@ fi
 
 setxkbmap br &
 
-nitrogen --restore &
+feh --bg-scale --no-xinerama ~/Pictures/wp6.jpg &
 
 picom -f &
 
-while true; do
-        dwm >/dev/null 2>&1
-done
-
-exec dwm
-
-
+exec i3

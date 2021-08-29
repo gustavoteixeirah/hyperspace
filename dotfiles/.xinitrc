@@ -50,7 +50,7 @@ fi
 
 setxkbmap br &
 
-feh --bg-scale --no-xinerama ~/Pictures/wp6.jpg &
+feh --bg-scale --no-xinerama ~/Pictures/ext_hys.jpg &
 
 picom -f &
 

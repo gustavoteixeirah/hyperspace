@@ -176,8 +176,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+i exec snap run intellij-idea-ultimate &
-
 bindsym $mod+b exec brave
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -190,7 +188,7 @@ exec_always picom -f
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec_always $HOME/.config/screenlayout/dualmonitor.sh
+exec_always $HOME/.config/.screenlayout/dualmonitor.sh
 
 for_window [class=".*"] border pixel 0
 

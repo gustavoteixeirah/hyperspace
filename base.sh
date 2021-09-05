@@ -11,7 +11,7 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 localhost.localdomain hyperspace" >> /etc/hosts
 
-pacman -S grub efibootmgr linux-headers networkmanager base-devel sudo nvidia nvidia-utils nvidia-settings
+pacman -S --noconfirm grub efibootmgr linux-headers networkmanager base-devel sudo nvidia nvidia-utils nvidia-settings reflector rsync
  
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg

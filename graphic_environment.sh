@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 
 # Check if the script is not being run as root user
-if [ "$(id -u)" = 0]; then
+if [ "$(id -u)" = 0 ]; then
     echo "You MUST NOT execute this script as the root user!"
     exit 1
 fi
 
 # Try to get fast servers to download packages
-sudo pacman -Syy reflector
+sudo pacman -Syy reflector rsync
 sudo reflector -c Brazil -a 8 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syyy
 
@@ -47,9 +47,9 @@ done
 
 
 # Install paru aur helper
-cd ~
+cd ~ || exit
 mkdir ~/Downloads
-cd ~/Downloads
+cd ~/Downloads || mkdir Downloads
 git clone https://aur.archlinux.org/paru.git
 cd paru || exit
 makepkg -si
@@ -71,9 +71,9 @@ for x in "${aurpackages[@]}"; do
 done
 
 #Install st
-cd ~/repositories/my-arch/suckless/st
+cd ~/repositories/my-arch/suckless/st || exit
 sudo make install
-cd ~
+cd ~  || exit
 
 # Configura polybar dotfiles e etc
 mkdir .config/polybar
@@ -85,14 +85,13 @@ cp -v ~/repositories/my-arch/dotfiles/.zshrc ~/.zshrc
 cp -v ~/repositories/my-arch/dotfiles/i3/* ~/.config/i3/
 cp -v ~/repositories/my-arch/dotfiles/fontconfig/* ~/.config/fontconfig/
 cp -v ~/repositories/my-arch/pictures/* ~/Pictures/
-cp -v  ~/repositories/my-arch/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
+cp -v ~/repositories/my-arch/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
 
 # Install brave browser
-cd ~
-mkdir ~/Downloads
-cd ~/Downloads
+cd ~ || exit
+cd ~/Downloads || mkdir ~/Downloads
 it clone https://aur.archlinux.org/brave-bin.git
-cd brave-bin
+cd brave-bin || exit
 makepkg -si
 
 # ZSH

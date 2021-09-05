@@ -65,7 +65,7 @@ font-3 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = pulseaudio memory cpu eth date
+modules-right = memory cpu eth date
 
 tray-position = none
 tray-padding = 2

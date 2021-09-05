@@ -1,6 +1,6 @@
 # Refer https://misc.flogisoft.com/bash/tip_colors_and_formatting for the ANSI/VT100 control sequences
 
-local user_color=224
+local user_color=202
 local dir_color=220
 local git_branch_color=224
 local line_color=220
@@ -36,8 +36,8 @@ print_line()
 }
 
 # Refer: https://stackoverflow.com/questions/263890/how-do-i-find-the-width-height-of-a-terminal-window
-PROMPT="$(print_line)
-${user}🔹${dir}🔹${git_branch}
+# PROMPT="$(print_line)
+PROMPT="${user}🔹${dir}🔹${git_branch}
 🔥 $FG[${input_color}]"
 
 # Resetting color to default white.

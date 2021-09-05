@@ -50,8 +50,10 @@ fi
 
 setxkbmap br &
 
-feh --bg-scale --no-xinerama ~/Pictures/ext_hys.jpg &
+feh --bg-scale ~/Pictures/dark-desert.jpeg &
 
 picom -f &
+
+/usr/bin/VBoxClient-all &
 
 exec i3

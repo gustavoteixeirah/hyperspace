@@ -12,39 +12,8 @@ sudo reflector -c Brazil -a 8 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syyy
 
 
-# Declare the packages to be installed with pacman
-declare -a mypackages=(
-"xorg"
-"xorg-server"
-"xorg-xinit"
-"xorg-xprop"
-"xorg-xrandr"
-"xorg-fonts-misc"
-"i3-gaps"
-"picom"
-"feh"
-"pulseaudio"
-"pulseaudio-alsa"
-"pavucontrol"
-"noto-fonts"
-"noto-fonts-emoji"
-"ttf-dejavu"
-"ttf-fira-code"
-"jdk11-openjdk"
-"jdk8-openjdk"
-"maven"
-"curl"
-"wget"
-"zip"
-"unzip"
-"zsh"
-"zsh-completions"
-)
-
-for x in "${mypackages[@]}"; do
-    sudo pacman -S --noconfirm --needed -S "$x"
-done
-
+# Install packages
+sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr xorg-fonts-misc i3-gaps picom feh pulseaudio pulseaudio-alsa pavucontrol noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code jdk11-openjdk jdk8-openjdk maven curl wget zip unzip zsh zsh-completions
 
 # Install paru aur helper
 cd ~ || exit
@@ -67,7 +36,7 @@ declare -a aurpackages=(
 )
 
 for x in "${aurpackages[@]}"; do
-    paru "$x"
+    paru --noconfirm --needed -S "$x"
 done
 
 #Install st
@@ -76,7 +45,7 @@ sudo make install
 cd ~  || exit
 
 # Configura polybar dotfiles e etc
-mkdir .config/polybar
+mkdir -p .config/{polybar,i3,fontconfig}
 cp -v ~/repositories/my-arch/dotfiles/polybar/* ~/.config/polybar/
 sudo chown teixeira:users .config/polybar/config
 sudo chmod +x .config/polybar/launch.sh
@@ -84,18 +53,23 @@ cp -v ~/repositories/my-arch/dotfiles/.xinitrc ~/.xinitrc
 cp -v ~/repositories/my-arch/dotfiles/.zshrc ~/.zshrc
 cp -v ~/repositories/my-arch/dotfiles/i3/* ~/.config/i3/
 cp -v ~/repositories/my-arch/dotfiles/fontconfig/* ~/.config/fontconfig/
+mkdir -p ~/Pictures
 cp -v ~/repositories/my-arch/pictures/* ~/Pictures/
-cp -v ~/repositories/my-arch/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
 
 # Install brave browser
 cd ~ || exit
-cd ~/Downloads || mkdir ~/Downloads
-it clone https://aur.archlinux.org/brave-bin.git
+cd ~/Downloads || exit
+git clone https://aur.archlinux.org/brave-bin.git
 cd brave-bin || exit
 makepkg -si
+cd ~ || exit
+
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+cp -v ~/repositories/my-arch/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
+
+printf "\e[1;32mSucesso na instalação!!! Reboot, log in and type startx.\e[0m"

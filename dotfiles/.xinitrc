@@ -54,6 +54,7 @@ feh --bg-scale ~/Pictures/dark-desert.jpeg &
 
 picom -f &
 
-/usr/bin/VBoxClient-all &
+# Only if running in a virtual-box vm
+#/usr/bin/VBoxClient-all &
 
 exec i3

@@ -7,7 +7,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 # Try to get fast servers to download packages
-sudo pacman -Syy reflector rsync
+sudo pacman --noconfirm --needed -Syy reflector rsync
 sudo reflector -c Brazil -a 8 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syyy
 

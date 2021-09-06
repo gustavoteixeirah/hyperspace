@@ -13,7 +13,7 @@ sudo pacman -Syyy
 
 
 # Install packages
-sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr xorg-fonts-misc i3-gaps rofi picom feh pulseaudio pulseaudio-alsa pavucontrol noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code jdk11-openjdk jdk8-openjdk maven curl wget zip unzip zsh zsh-completions
+sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr xorg-fonts-misc i3-gaps rofi picom feh pulseaudio pulseaudio-alsa pavucontrol noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code curl wget zip unzip zsh zsh-completions neofetch ranger
 
 # Install paru aur helper
 cd ~ || exit
@@ -31,8 +31,7 @@ declare -a aurpackages=(
 "libxft-bgra"
 "spotify"
 "polybar"
-"archlinux-java"
-"visual-studio-code-bin"
+"gotop"
 )
 
 for x in "${aurpackages[@]}"; do
@@ -52,10 +51,11 @@ sudo chmod +x .config/polybar/launch.sh
 cp -v ~/repositories/my-arch/dotfiles/.xinitrc ~/.xinitrc
 cp -v ~/repositories/my-arch/dotfiles/i3/* ~/.config/i3/
 cp -v ~/repositories/my-arch/dotfiles/fontconfig/* ~/.config/fontconfig/
+cp -v ~/repositories/my-arch/dotfiles/vim/* ~/
 mkdir -p ~/Pictures
 cp -v ~/repositories/my-arch/pictures/* ~/Pictures/
 
-# Install brave browser
+# Install brave browser this way because is faster than using aur helper yay or paru
 cd ~ || exit
 cd ~/Downloads || exit
 git clone https://aur.archlinux.org/brave-bin.git

@@ -9,3 +9,5 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 
 cp -v ~/repositories/my-arch/dotfiles/.zshrc ~/.zshrc
 cp -v ~/repositories/my-arch/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
+
+

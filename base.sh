@@ -13,7 +13,7 @@ echo "127.0.1.1 localhost.localdomain hyperspace" >> /etc/hosts
 
 pacman -S --noconfirm grub efibootmgr linux-headers networkmanager base-devel sudo nvidia nvidia-utils nvidia-settings reflector rsync
  
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager

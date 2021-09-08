@@ -13,7 +13,10 @@ newgrp docker
 declare -a aurpackages=(
 "archlinux-java"
 "visual-studio-code-bin"
+"drawio-desktop-bin"
 )
+
+# !OBS line 16 has not been tested
 
 for x in "${aurpackages[@]}"; do
     paru --noconfirm --needed -S "$x"

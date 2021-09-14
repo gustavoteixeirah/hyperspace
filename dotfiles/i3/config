@@ -200,5 +200,5 @@ smart_borders on
 
 smart_borders no_gaps
 
-gaps inner 15
-gaps outer 15
+gaps inner 5
+gaps outer 5

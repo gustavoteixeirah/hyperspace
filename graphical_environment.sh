@@ -28,7 +28,6 @@ declare -a aurpackages=(
 "ttf-unifont"
 "siji-git"
 "ttf-symbola"
-"libxft-bgra"
 "spotify"
 "polybar"
 "gotop"
@@ -39,21 +38,21 @@ for x in "${aurpackages[@]}"; do
 done
 
 #Install st
-cd ~/repositories/my-arch/suckless/st || exit
+cd ~/repositories/hyperspace/suckless/st || exit
 sudo make install
 cd ~ || exit
 
 # Configura polybar dotfiles e etc
 mkdir -p .config/{polybar,i3,fontconfig}
-cp -v ~/repositories/my-arch/dotfiles/polybar/* ~/.config/polybar/
+cp -v ~/repositories/hyperspace/dotfiles/polybar/* ~/.config/polybar/
 sudo chown teixeira:users .config/polybar/config
 sudo chmod +x .config/polybar/launch.sh
-cp -v ~/repositories/my-arch/dotfiles/.xinitrc ~/.xinitrc
-cp -v ~/repositories/my-arch/dotfiles/i3/* ~/.config/i3/
-cp -v ~/repositories/my-arch/dotfiles/fontconfig/* ~/.config/fontconfig/
-cp -v ~/repositories/my-arch/dotfiles/vim/* ~/
+cp -v ~/repositories/hyperspace/dotfiles/.xinitrc ~/.xinitrc
+cp -v ~/repositories/hyperspace/dotfiles/i3/* ~/.config/i3/
+cp -v ~/repositories/hyperspace/dotfiles/fontconfig/* ~/.config/fontconfig/
+cp -v ~/repositories/hyperspace/dotfiles/vim/* ~/
 mkdir -p ~/Pictures
-cp -v ~/repositories/my-arch/pictures/* ~/Pictures/
+cp -v ~/repositories/hyperspace/pictures/* ~/Pictures/
 
 # Install brave browser this way because is faster than using aur helper yay or paru
 cd ~ || exit

@@ -22,7 +22,7 @@ useradd -m  -g users -G wheel -s /bin/bash teixeira
 echo teixeira:teixeira | chpasswd
 echo "teixeira ALL=(ALL) ALL" >> /etc/sudoers.d/teixeira
 
-printf "\e[1;32mDone! Type exit, umount -R /mnt and reboot.\e[0m"
+printf "\e[1;32mDone! >>>>> CHECK GRUB CONFIG <<<< Type exit, umount -R /mnt and reboot.\e[0m"
 
 
 # Reference:

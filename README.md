@@ -51,7 +51,7 @@ mkfs.ext4 /dev/sda3
 Mount...
 ```
 mount /dev/sda2 /mnt
-mkdir /mnt/{home,boot}
+mkdir -p /mnt/{home,boot}
 mount /dev/sda1 /mnt/boot
 mount /dev/sda3 /mnt/home
 ```

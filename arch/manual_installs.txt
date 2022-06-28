@@ -7,8 +7,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
-cp -v ~/repositories/hyperspace/dotfiles/.zshrc ~/.zshrc
-cp -v ~/repositories/hyperspace/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
+cp -v ~/r/hyperspace/dotfiles/.zshrc ~/.zshrc
+cp -v ~/r/hyperspace/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/
 
 # NECESSÁRIO INSTALLAR ESSE PACOTE PARA QUE OS EMOJIS FUNCIONEM!
 paru libxft-bgra

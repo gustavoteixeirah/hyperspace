@@ -38,21 +38,21 @@ for x in "${aurpackages[@]}"; do
 done
 
 #Install st
-cd ~/repositories/hyperspace/suckless/st || exit
+cd ~/code/hyperspace/arch/suckless/st || exit
 sudo make install
 cd ~ || exit
 
 # Configura polybar dotfiles e etc
 mkdir -p .config/{polybar,i3,fontconfig}
-cp -v ~/repositories/hyperspace/dotfiles/polybar/* ~/.config/polybar/
+cp -v ~/code/hyperspace/arch/dotfiles/polybar/* ~/.config/polybar/
 sudo chown teixeira:users .config/polybar/config
 sudo chmod +x .config/polybar/launch.sh
-cp -v ~/repositories/hyperspace/dotfiles/.xinitrc ~/.xinitrc
-cp -v ~/repositories/hyperspace/dotfiles/i3/* ~/.config/i3/
-cp -v ~/repositories/hyperspace/dotfiles/fontconfig/* ~/.config/fontconfig/
-cp -v ~/repositories/hyperspace/dotfiles/vim/* ~/
+cp -v ~/code/hyperspace/arch/dotfiles/.xinitrc ~/.xinitrc
+cp -v ~/code/hyperspace/arch/dotfiles/i3/* ~/.config/i3/
+cp -v ~/code/hyperspace/arch/dotfiles/fontconfig/* ~/.config/fontconfig/
+cp -v ~/code/hyperspace/arch/dotfiles/vim/* ~/
 mkdir -p ~/Pictures
-cp -v ~/repositories/hyperspace/pictures/* ~/Pictures/
+cp -v ~/code/hyperspace/arch/pictures/* ~/Pictures/
 
 # Install brave browser this way because is faster than using aur helper yay or paru
 cd ~ || exit

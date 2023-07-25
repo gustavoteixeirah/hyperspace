@@ -1,7 +1,6 @@
 !/usr/bin/bash
 
-sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr nvidia nvidia-utils nvidia-settings
-
+sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr nvidia-lts nvidia-utils nvidia-settings
 
 sudo pacman --noconfirm --needed -S i3 
 

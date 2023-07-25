@@ -1,5 +1,9 @@
 !/usr/bin/bash
 
+git config --global core.editor "vim"
+git config --global user.email "contact@gustavoteixeira.dev"
+git config --global user.name "Gustavo Teixeira"
+git config --global url.git@github.com:.insteadOf https://github.com/
 
 ssh-keygen -t ed25519 -C "contact@gustavoteixeira.dev"
 eval "$(ssh-agent -s)"

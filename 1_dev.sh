@@ -25,7 +25,7 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-sudo pacman --noconfirm --needed -S python-pip python-poetry
+sudo pacman --noconfirm --needed -S tk python-pip python-poetry
 poetry config virtualenvs.in-project true
 
 # Infra tools

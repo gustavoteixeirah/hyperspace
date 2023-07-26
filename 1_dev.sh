@@ -13,7 +13,7 @@ done
 sudo pacman --noconfirm --needed -S curl wget zip unzip neofetch btop  obsidian
 
 # IDEs
-sudo pacman --noconfirm --needed -S intellij-idea-community-edition
+sudo pacman --noconfirm --needed -S jetbrains-toolbox
 
 # Java related tools
 sudo pacman --noconfirm --needed -S java-runtime-common jdk8-openjdk jdk11-openjdk jdk17-openjdk maven gradle

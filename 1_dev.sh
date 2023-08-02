@@ -10,7 +10,7 @@ for x in "${aurpackages[@]}"; do
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S curl wget zip unzip neofetch btop  obsidian
+sudo pacman --noconfirm --needed -S curl wget zip unzip tree neofetch btop obsidian
 
 # IDEs
 sudo pacman --noconfirm --needed -S jetbrains-toolbox
@@ -25,7 +25,7 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-sudo pacman --noconfirm --needed -S tk python-pip python-poetry
+sudo pacman --noconfirm --needed -S tk python-pip python-poetry python-ipykernel python-minio
 poetry config virtualenvs.in-project true
 
 # Infra tools

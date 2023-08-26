@@ -4,6 +4,7 @@ declare -a aurpackages=(
 "visual-studio-code-bin"
 "postman-bin"
 "slack-desktop"
+"kind"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"
@@ -29,7 +30,7 @@ sudo pacman --noconfirm --needed -S tk python-pip python-poetry python-ipykernel
 poetry config virtualenvs.in-project true
 
 # Infra tools
-sudo pacman --noconfirm --needed -S docker docker-compose 
+sudo pacman --noconfirm --needed -S docker docker-compose kubectl
 systemctl start docker.service
 systemctl enable docker.service
 sudo usermod -aG docker "$USER"

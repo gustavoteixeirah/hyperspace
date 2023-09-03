@@ -5,6 +5,7 @@ declare -a aurpackages=(
 "postman-bin"
 "slack-desktop"
 "kind"
+"mongodb-compass"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"

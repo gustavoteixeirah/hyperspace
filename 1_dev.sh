@@ -12,7 +12,7 @@ for x in "${aurpackages[@]}"; do
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S curl wget zip unzip tree neofetch btop obsidian
+sudo pacman --noconfirm --needed -S curl wget zip unzip tree neofetch btop obsidian openssh
 
 # IDEs
 sudo pacman --noconfirm --needed -S jetbrains-toolbox

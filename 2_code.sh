@@ -25,8 +25,5 @@ git clone git@github.com:gustavoteixeirah/Tools.git
 
 mkdir -p ~/code/KodeGT
 cd ~/code/KodeGT
-git clone git@github.com:KodeGT/webapp.git
-git clone git@github.com:KodeGT/studybuddy.git
-git clone git@github.com:KodeGT/qa.git
-git clone git@github.com:KodeGT/infra.git
-git clone git@github.com:KodeGT/docs.git
+git clone git@github.com:gustavoteixeirah/studybuddy-backend.git
+git clone git@github.com:gustavoteixeirah/studybuddy-app.git

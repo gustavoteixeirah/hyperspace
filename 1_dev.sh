@@ -27,8 +27,7 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-sudo pacman --noconfirm --needed -S tk python-pip python-poetry python-ipykernel python-minio jupyterlab jupyter-notebook cuda pyenv conda
-poetry config virtualenvs.in-project true
+sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda pyenv conda
 
 # Infra tools
 sudo pacman --noconfirm --needed -S docker docker-compose kubectl

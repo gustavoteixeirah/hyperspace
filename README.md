@@ -17,3 +17,8 @@ Equivalent of `apt-get update && apt-get upgrade` in Arch:
 ```
 sudo pacman -Syy && sudo pacman -Syu
 ```
+
+Keyboard layout for legion:
+```
+setxkbmap -model abnt2 -layout br -variant abnt2
+```

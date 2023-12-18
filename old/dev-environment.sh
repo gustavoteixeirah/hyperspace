@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 
-sudo pacman --noconfirm --needed -S jdk11-openjdk jdk8-openjdk maven docker docker-compose intellij-idea-community-edition virtualbox virtualbox-host-modules-arch
+sudo pacman --noconfirm --needed -S jdk17-openjdk jdk11-openjdk jdk8-openjdk maven docker docker-compose intellij-idea-community-edition virtualbox virtualbox-host-modules-arch
 
 sudo pacman --noconfirm --needed -S nodejs npm
 systemctl start docker.service

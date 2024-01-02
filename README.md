@@ -14,11 +14,16 @@ Now, do your post installation steps.
 
 ### Maintenance
 Equivalent of `apt-get update && apt-get upgrade` in Arch:
-```
+```bash
 sudo pacman -Syy && sudo pacman -Syu
 ```
 
 Keyboard layout for legion:
-```
+```bash
 setxkbmap -model abnt2 -layout br -variant abnt2
+```
+
+Connect to WiFi: open terminal an enter:
+```bash
+nmtui
 ```

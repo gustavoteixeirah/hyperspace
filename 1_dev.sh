@@ -6,13 +6,14 @@ declare -a aurpackages=(
 "slack-desktop"
 "kind"
 "mongodb-compass"
+"gufw"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S curl wget zip unzip tree neofetch btop obsidian openssh
+sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh
 
 # IDEs
 sudo pacman --noconfirm --needed -S jetbrains-toolbox

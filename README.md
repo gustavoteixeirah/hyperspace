@@ -27,3 +27,8 @@ Connect to WiFi: open terminal an enter:
 ```bash
 nmtui
 ```
+
+Having internet problems? Try:
+```
+nmcli n off; nmcli n on
+```

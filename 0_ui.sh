@@ -14,7 +14,7 @@ cd ~ || exit
 # Tools
 sudo pacman --noconfirm --needed -S vim git base-devel rofi feh curl wget zip unzip zsh
 
-nsudo pacman --noconfirm --needed -S  noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code
+sudo pacman --noconfirm --needed -S  noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code
 
 
 chsh -s `which zsh`

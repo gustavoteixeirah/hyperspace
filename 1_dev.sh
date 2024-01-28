@@ -5,8 +5,6 @@ declare -a aurpackages=(
 "postman-bin"
 "slack-desktop"
 "kind"
-"mongodb-compass"
-"gufw"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"
@@ -19,7 +17,7 @@ sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop o
 sudo pacman --noconfirm --needed -S jetbrains-toolbox
 
 # Java related tools
-sudo pacman --noconfirm --needed -S java-runtime-common jdk8-openjdk jdk11-openjdk jdk17-openjdk maven gradle
+sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle
 
 # Fonts
 sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji ttf-dejavu
@@ -28,10 +26,10 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv
+# sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv
 
 # Database related
-sudo pacman --noconfirm --needed -S postgresql
+# sudo pacman --noconfirm --needed -S postgresql
 
 # Infra tools
 sudo pacman --noconfirm --needed -S docker docker-compose kubectl

@@ -6,6 +6,11 @@ sudo pacman --noconfirm --needed -S i3
 
 sudo cp ~/code/hyperspace/dotfiles/.xinitrc ~/.xinitrc
 
+#Install st
+cd ~/code/hyperspace/arch/suckless/st || exit
+sudo make install
+cd ~ || exit
+
 # Tools
 sudo pacman --noconfirm --needed -S vim git base-devel rofi feh curl wget zip unzip zsh
 

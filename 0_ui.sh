@@ -1,6 +1,6 @@
 !/usr/bin/bash
 
-sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr nvidia-lts
+sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr arandr nvidia-lts
 
 sudo pacman --noconfirm --needed -S i3 
 

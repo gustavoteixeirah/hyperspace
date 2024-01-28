@@ -16,4 +16,3 @@ cd yay
 makepkg -si
 cd ~
 yay --noconfirm --needed -S google-chrome
-yay --noconfirm --needed -S spotify

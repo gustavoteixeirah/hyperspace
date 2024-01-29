@@ -13,8 +13,10 @@ cd ~ || exit
 
 # Tools
 sudo pacman --noconfirm --needed -S vim git base-devel rofi feh curl wget zip unzip zsh
-
+# Fonts
 sudo pacman --noconfirm --needed -S  noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code
+# Audi
+sudo pacman --noconfirm --needed -S pulseaudio pavucontrol
 
 
 chsh -s `which zsh`

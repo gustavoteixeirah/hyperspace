@@ -5,6 +5,7 @@ declare -a aurpackages=(
 "postman-bin"
 "slack-desktop"
 "kind"
+"jetbrains-toolbox"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"
@@ -12,9 +13,6 @@ done
 
 # General tools
 sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh
-
-# IDEs
-sudo pacman --noconfirm --needed -S jetbrains-toolbox
 
 # Java related tools
 sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle

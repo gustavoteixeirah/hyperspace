@@ -31,8 +31,8 @@ sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Infra tools
 sudo pacman --noconfirm --needed -S docker docker-compose kubectl
-systemctl start docker.service
-systemctl enable docker.service
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
 sudo usermod -aG docker "$USER"
 newgrp docker
 

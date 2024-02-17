@@ -12,7 +12,7 @@ for x in "${aurpackages[@]}"; do
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh stow zoxide ripgrep
+sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh stow zoxide ripgrep fd
 
 # Java related tools
 sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle

@@ -26,6 +26,10 @@ sudo pacman --noconfirm --needed -S nodejs npm pnpm
 # Python related
 # sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv
 
+# Rust related
+sudo pacman --noconfirm --needed -S rustup 
+rustup default stable
+
 # Database related
 # sudo pacman --noconfirm --needed -S postgresql
 

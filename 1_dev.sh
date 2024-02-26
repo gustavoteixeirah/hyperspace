@@ -34,7 +34,7 @@ rustup default stable
 # sudo pacman --noconfirm --needed -S postgresql
 
 # Infra tools
-sudo pacman --noconfirm --needed -S docker docker-compose kubectl
+sudo pacman --noconfirm --needed -S docker docker-compose docker-buildx kubectl
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
 sudo usermod -aG docker "$USER"

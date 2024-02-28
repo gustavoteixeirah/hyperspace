@@ -32,3 +32,8 @@ Having internet problems? Try:
 ```
 nmcli n off; nmcli n on
 ```
+
+### Installing pkg.tar.zst
+```bash
+sudo pacman -U --noconfirm your-package.pkg.tar.zst
+```

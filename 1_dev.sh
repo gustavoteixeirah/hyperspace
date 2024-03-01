@@ -18,6 +18,9 @@ sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop o
 sudo pacman --noconfirm --needed -S ttf-nerd-fonts-symbols-mono xcb-imdkit 
 yay wezterm-git
 
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Java related tools
 sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle
 

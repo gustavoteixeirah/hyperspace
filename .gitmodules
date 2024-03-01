@@ -1,0 +1,3 @@
+[submodule "arch/suckless/LukeSmithSt"]
+	path = arch/suckless/LukeSmithSt
+	url = https://github.com/LukeSmithxyz/st

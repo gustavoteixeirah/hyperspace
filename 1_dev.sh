@@ -24,7 +24,7 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-# sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv
+# sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv ruff
 
 # Rust related
 sudo pacman --noconfirm --needed -S rustup 

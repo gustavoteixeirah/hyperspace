@@ -37,3 +37,15 @@ nmcli n off; nmcli n on
 ```bash
 sudo pacman -U --noconfirm your-package.pkg.tar.zst
 ```
+
+
+### Kill stuff
+check processes running on port x:
+```bash
+sudo ss -tuln | grep :3000
+```
+
+kill
+```bash
+kill $(lsof -t -i:3000)
+```

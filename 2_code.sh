@@ -22,8 +22,3 @@ read hasCopied
 mkdir -p ~/code
 cd ~/code
 git clone git@github.com:gustavoteixeirah/Tools.git
-
-mkdir -p ~/code/KodeGT
-cd ~/code/KodeGT
-git clone git@github.com:gustavoteixeirah/studybuddy-backend.git
-git clone git@github.com:gustavoteixeirah/studybuddy-app.git

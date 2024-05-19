@@ -1,4 +1,4 @@
-sudo apt install lsd make unzip gcc ripgrep zsh
+sudo apt install lsd make unzip gcc ripgrep zsh nodejs
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/stable
 

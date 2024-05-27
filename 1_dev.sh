@@ -6,6 +6,7 @@ declare -a aurpackages=(
 "slack-desktop"
 "kind"
 "jetbrains-toolbox"
+"drawio-desktop"
 )
 for x in "${aurpackages[@]}"; do
     yay --noconfirm --needed -S "$x"

@@ -49,3 +49,9 @@ kill
 ```bash
 kill $(lsof -t -i:3000)
 ```
+
+
+Wifi problems? Try:
+```bash
+rfkill unblock all
+```

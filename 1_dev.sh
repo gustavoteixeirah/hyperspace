@@ -19,10 +19,9 @@ sudo pacman --noconfirm --needed -S ttf-nerd-fonts-symbols-mono xcb-imdkit
 yay wezterm-git
 
 # tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Java related tools
-sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle
+#sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle
 
 # Fonts
 sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji ttf-dejavu
@@ -47,3 +46,5 @@ sudo systemctl enable docker.service
 sudo usermod -aG docker "$USER"
 newgrp docker
 
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"

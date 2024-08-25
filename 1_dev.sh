@@ -15,9 +15,8 @@ done
 # General tools
 sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh stow zoxide ripgrep fd ripgrep
 
-# Wezterm Terminal
-sudo pacman --noconfirm --needed -S ttf-nerd-fonts-symbols-mono xcb-imdkit 
-yay wezterm-git
+# Neovim dependencies
+sudo pacman --noconfirm --needed -S ripgrep xclip xsel
 
 # tmux
 #git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

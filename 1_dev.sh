@@ -31,6 +31,7 @@ sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
 # sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv ruff
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Rust related
 sudo pacman --noconfirm --needed -S rustup 

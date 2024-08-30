@@ -5,9 +5,13 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Fira Code iScript:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 2;
-
+MouseKey mkeys[] = {
+	/* button               mask            function        argument */
+	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
+	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+ };
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e

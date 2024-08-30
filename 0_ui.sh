@@ -1,10 +1,14 @@
 !/usr/bin/bash
 
-sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr arandr nvidia-lts xorg-fonts-misc rofi feh pavucontrol 
+sudo pacman --noconfirm --needed -S xorg xorg-server xorg-xinit xorg-xprop xorg-xrandr arandr xorg-fonts-misc rofi feh pavucontrol 
+# sudo pacman --noconfirm --needed -S nvidia-lts  
 
 sudo pacman --noconfirm --needed -S i3 
 
 sudo cp ~/code/hyperspace/dotfiles/.xinitrc ~/.xinitrc
+
+sudo mkdir -p ~/.local/share/fonts
+sudo cp ~/code/hyperspace/fonts/* ~/.local/share/fonts
 
 #Install st
 cd ~/code/hyperspace/arch/suckless/st || exit
@@ -12,7 +16,7 @@ sudo make install
 cd ~ || exit
 
 # Tools
-sudo pacman --noconfirm --needed -S vim git base-devel rofi feh curl wget zip unzip zsh zsh-completions neofetch ranger fzf zoxide
+sudo pacman --noconfirm --needed -S base-devel rofi feh curl wget zip unzip zsh zsh-completions neofetch ranger fzf zoxide
 # Fonts
 sudo pacman --noconfirm --needed -S noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code 
 # Audio

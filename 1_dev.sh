@@ -13,7 +13,7 @@ for x in "${aurpackages[@]}"; do
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh stow zoxide fd keepass lsd bat
+sudo pacman --noconfirm --needed -S ufw curl wget zip unzip tree neofetch btop obsidian openssh stow zoxide fd keepass lsd bat discord flameshot 
 
 # Neovim dependencies
 sudo pacman --noconfirm --needed -S ripgrep xclip xsel

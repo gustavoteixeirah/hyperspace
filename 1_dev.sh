@@ -19,7 +19,7 @@ sudo pacman --noconfirm --needed -S ufw tmux curl wget zip unzip tree neofetch b
 sudo pacman --noconfirm --needed -S ripgrep xclip xsel
 
 # tmux
-#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #sudo pacman --noconfirm --needed -S java-runtime-common jdk17-openjdk maven gradle
 

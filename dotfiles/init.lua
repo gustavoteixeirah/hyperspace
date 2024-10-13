@@ -515,7 +515,7 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				-- tsserver = {},
+				ts_ls = {},
 				--
 
 				lua_ls = {
@@ -805,6 +805,16 @@ require("lazy").setup({
 				"vim",
 				"vimdoc",
 				"java",
+				"javascript",
+				"gotmpl",
+				"go",
+				"css",
+				"proto",
+				"python",
+				"sql",
+				"templ",
+				"yaml",
+				"xml",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,

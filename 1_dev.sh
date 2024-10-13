@@ -3,7 +3,6 @@
 declare -a aurpackages=(
 "visual-studio-code-bin"
 "postman-bin"
-"slack-desktop"
 "kind"
 "jetbrains-toolbox"
 "drawio-desktop"
@@ -30,7 +29,7 @@ sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji tt
 sudo pacman --noconfirm --needed -S nodejs npm pnpm
 
 # Python related
-# sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv ruff
+sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv ruff
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Rust related

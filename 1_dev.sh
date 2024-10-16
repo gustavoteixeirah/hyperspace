@@ -26,7 +26,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo pacman --noconfirm --needed -S ttf-fira-code noto-fonts noto-fonts-emoji ttf-dejavu
 
 # Frontend related
-sudo pacman --noconfirm --needed -S nodejs npm pnpm
+sudo pacman --noconfirm --needed -S nvm nodejs npm pnpm 
 
 # Python related
 sudo pacman --noconfirm --needed -S tk python-pip python-ipykernel python-minio jupyterlab jupyter-notebook cuda tensorflow-cuda python-tensorflow-cuda pyenv ruff

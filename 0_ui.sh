@@ -4,6 +4,7 @@ sudo pacman --noconfirm --needed -S i3
 sudo cp ~/code/hyperspace/dotfiles/.xinitrc ~/.xinitrc
 sudo mkdir -p ~/.local/share/fonts
 sudo cp ~/code/hyperspace/fonts/* ~/.local/share/fonts
+fc-cache
 #Install st
 cd ~/code/hyperspace/arch/suckless/st || exit
 sudo make install

@@ -1,3 +1,6 @@
 [submodule "arch/suckless/LukeSmithSt"]
 	path = arch/suckless/LukeSmithSt
 	url = https://github.com/LukeSmithxyz/st
+[submodule "wallpapers/bank"]
+	path = wallpapers/bank
+	url = https://github.com/JaKooLit/Wallpaper-Bank.git

@@ -117,6 +117,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -504,9 +505,24 @@ require("lazy").setup({
 			local servers = {
 				-- clangd = {},
 				html = {},
-				htmx = {},
+				htmx = {
+					filetypes = { "html", "templ" },
+				},
 				cssls = {},
 				gopls = {},
+				templ = {
+					filetypes = { "html", "templ" },
+				},
+				tailwindcss = {
+					filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+					settings = {
+						tailwindCSS = {
+							includeLanguages = {
+								templ = "html",
+							},
+						},
+					},
+				},
 				pyright = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -854,6 +870,27 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+		config = function()
+			require("Comment").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
 	},
 	--
 	--  Here are some example plugins that I've included in the Kickstart repository.

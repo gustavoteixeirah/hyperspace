@@ -14,11 +14,4 @@ ssh-add ~/.ssh/id_ed25519
 
 cat ~/.ssh/id_ed25519.pub
 
-echo Have you copied the public key and pasted into github ssh section?
 
-read hasCopied
-
-# Code repositories
-mkdir -p ~/code
-cd ~/code
-git clone git@github.com:gustavoteixeirah/Tools.git

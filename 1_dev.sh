@@ -5,6 +5,7 @@ declare -a aurpackages=(
 "postman-bin"
 "kind"
 "jetbrains-toolbox"
+"slack-desktop"
 "drawio-desktop"
 )
 for x in "${aurpackages[@]}"; do

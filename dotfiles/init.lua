@@ -511,7 +511,7 @@ require("lazy").setup({
 				cssls = {},
 				gopls = {},
 				templ = {
-					filetypes = { "html", "templ" },
+					filetypes = { "templ" },
 				},
 				tailwindcss = {
 					filetypes = { "templ", "astro", "javascript", "typescript", "react" },
@@ -614,6 +614,7 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				templ = { "templ" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--

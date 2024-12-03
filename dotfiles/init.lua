@@ -787,6 +787,11 @@ require("lazy").setup({
 	},
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+			"vrischmann/tree-sitter-templ",
+		},
+		vim.treesitter.language.register("templ", "templ"),
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -866,28 +871,101 @@ require("lazy").setup({
 	},
 	{
 		"numToStr/Comment.nvim",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		opts = {
 			-- add any options here
 		},
 		config = function()
+			local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+
 			require("Comment").setup({
 				-- Configuration here, or leave empty to use defaults
+				pre_hook = ts_context_commentstring.create_pre_hook(),
 			})
 		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
 	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		init = function()
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("catppuccin-mocha")
+		config = function()
+			require("catppuccin").setup({
+				flavour = "auto", -- latte, frappe, macchiato, mocha
+				background = { -- :h background
+					light = "latte",
+					dark = "mocha",
+				},
+				transparent_background = false, -- disables setting the background color.
+				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+				term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+				dim_inactive = {
+					enabled = false, -- dims the background color of inactive window
+					shade = "dark",
+					percentage = 0.15, -- percentage of the shade to apply to the inactive window
+				},
+				no_italic = false, -- Force no italic
+				no_bold = false, -- Force no bold
+				no_underline = false, -- Force no underline
+				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+					comments = { "italic" }, -- Change the style of comments
+					conditionals = { "italic" },
+					loops = {},
+					functions = {},
+					keywords = {},
+					strings = {},
+					variables = {},
+					numbers = {},
+					booleans = {},
+					properties = {},
+					types = {},
+					operators = {},
+					-- miscs = {}, -- Uncomment to turn off hard-coded styles
+				},
+				color_overrides = {},
+				custom_highlights = {},
+				default_integrations = true,
+				integrations = {
+					cmp = true,
+					gitsigns = true,
+					nvimtree = true,
+					treesitter = true,
+					notify = false,
+					mini = {
+						enabled = true,
+						indentscope_color = "",
+					},
+					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+				},
+			})
 
-			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
+			-- setup must be called before loading
+			vim.cmd.colorscheme("catppuccin")
 		end,
+	},
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+		opts = {
+			symbol = "│",
+		},
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		main = "ibl",
+		opts = {
+			--  indent = { char = "┊" },
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+		},
 	},
 	--
 	--  Here are some example plugins that I've included in the Kickstart repository.

@@ -14,6 +14,8 @@ done
 
 # General tools
 sudo pacman --noconfirm --needed -S ufw tmux curl wget zip unzip tree jq neofetch btop obsidian openssh zoxide fd keepass lsd bat flameshot 
+sudo pacman -S openssl readline zlib curl libutil-linux icu
+
 
 # Neovim dependencies
 sudo pacman --noconfirm --needed -S ripgrep xclip xsel

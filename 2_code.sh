@@ -1,6 +1,6 @@
 !/usr/bin/bash
 
-git config --global core.editor "vim"
+git config --global core.editor "nvim"
 git config --global user.email "10344032+gustavoteixeirah@users.noreply.github.com"
 git config --global user.name "Gustavo Teixeira"
 git config --global url.git@github.com:.insteadOf https://github.com/

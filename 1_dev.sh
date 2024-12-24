@@ -18,7 +18,7 @@ sudo pacman -S openssl readline zlib curl libutil-linux icu
 
 
 # Neovim dependencies
-sudo pacman --noconfirm --needed -S ripgrep xclip xsel
+sudo pacman --noconfirm --needed -S ripgrep xclip xsel lua-language-server
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

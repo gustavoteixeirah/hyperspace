@@ -68,4 +68,3 @@ connect to SSID
 iwctl station  wlan0  connect TP-Link_0AF4
  ````
 
-

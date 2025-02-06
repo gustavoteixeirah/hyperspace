@@ -55,3 +55,17 @@ Wifi problems? Try:
 ```bash
 rfkill unblock all
 ```
+
+### Connect WiFi with `iwctl`
+
+check connectivity
+```bash
+iwctl device list
+```
+
+connect to SSID
+```bash
+iwctl station  wlan0  connect TP-Link_0AF4
+ ````
+
+

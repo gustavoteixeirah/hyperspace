@@ -68,3 +68,8 @@ connect to SSID
 iwctl station  wlan0  connect TP-Link_0AF4
  ````
 
+
+check devices connected in my network
+```bash
+nmap -sP -n <ip-da-lan>
+```

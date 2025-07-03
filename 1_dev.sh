@@ -13,7 +13,7 @@ for x in "${aurpackages[@]}"; do
 done
 
 # General tools
-sudo pacman --noconfirm --needed -S ufw tmux curl wget zip unzip tree jq neofetch btop obsidian openssh zoxide fd keepass lsd bat flameshot 
+sudo pacman --noconfirm --needed -S ufw tmux curl wget zip unzip tree jq btop obsidian openssh zoxide fd keepass lsd bat flameshot 
 sudo pacman -S openssl readline zlib curl libutil-linux icu
 
 

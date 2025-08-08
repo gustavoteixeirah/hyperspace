@@ -61,3 +61,5 @@ newgrp docker
 
 sudo pacman -S $(pacman -Sgq nerd-fonts)
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+

@@ -81,3 +81,37 @@ cd ~/code/my-project
 git worktree prune
 ```
 
+---
+
+ Let's say you're on the develop branch in your main repo and have uncommitted work you want to move to a new feature branch in a new worktree.
+
+1. Stash Your Uncommitted Changes
+
+In your main repo directory (~/code/my-project), stash your current work. Giving it a message is good practice.
+Bash
+
+# Stash all your current tracked, untracked, and staged changes
+git stash push -u -m "WIP: work for new feature"
+
+Your develop branch is now clean.
+
+2. Create the New Worktree
+
+Create the worktree with a new branch for your feature.
+Bash
+
+# Create a new branch 'feature/new-thing' from 'develop' in the new worktree
+git worktree add -b feature/new-thing ../my-project-worktrees/new-thing develop
+
+3. Navigate and Apply the Stash
+
+Go into the new worktree directory. The stash you just created is available here.
+Bash
+
+cd ../my-project-worktrees/new-thing
+
+# Apply the most recent stash and remove it from the stash list
+git stash pop
+
+That's it. Your uncommitted changes are now present in the new worktree, associated with the feature/new-thing branch, ready for you to continue working and commit them there. Your original worktree on develop remains clean.
+

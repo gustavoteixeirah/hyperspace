@@ -73,3 +73,9 @@ check devices connected in my network
 ```bash
 nmap -sP -n <ip-da-lan>
 ```
+
+
+Disable screen saver:
+```bash
+xset s off
+```

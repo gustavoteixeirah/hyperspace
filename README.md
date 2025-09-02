@@ -73,3 +73,9 @@ check devices connected in my network
 ```bash
 nmap -sP -n 192.168.100.0/24
 ```
+
+
+Disable screen saver:
+```bash
+xset s off
+```

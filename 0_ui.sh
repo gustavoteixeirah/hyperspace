@@ -1,4 +1,4 @@
-sudo pacman --noconfirm --needed -S arandr rofi feh pavucontrol base-devel curl wget zip unzip zsh zsh-completions fzf ttf-fira-code ghostty xcape i3status
+sudo pacman --noconfirm --needed -S arandr rofi feh pavucontrol base-devel curl wget zip unzip zsh zsh-completions fzf ttf-fira-code ghostty xcape i3
 chsh -s `which zsh`
 git clone https://aur.archlinux.org/yay.git
 cd yay

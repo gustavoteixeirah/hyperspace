@@ -1,5 +1,3 @@
-!/usr/bin/bash
-
 declare -a aurpackages=(
 "visual-studio-code-bin"
 "zen-browser-bin"

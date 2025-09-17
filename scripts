@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# --- Configuração ---
+# O nome da pasta do projeto que você quer analisar.
+PROJECT_DIR="architect-proxy-v2"
+
+# O nome da pasta onde os arquivos de saída serão salvos.
+OUTPUT_DIR="temp_output"
+
+# As subpastas dentro do projeto que serão processadas.
+SUB_FOLDERS=("domain" "infrastructure" "application")
+
+# --- Validação Inicial ---
+# Verifica se a pasta do projeto realmente existe no local atual.
+if [ ! -d "$PROJECT_DIR" ]; then
+  echo "Erro: A pasta do projeto '$PROJECT_DIR' não foi encontrada no diretório atual."
+  echo "Por favor, execute este script no mesmo nível que a pasta do seu projeto (ex: ~/code/)."
+  exit 1
+fi
+
+# --- Preparação ---
+# Cria a pasta de saída, removendo uma antiga se existir, para garantir que esteja limpa.
+echo "Limpando e criando a pasta de saída: $OUTPUT_DIR/"
+rm -rf "$OUTPUT_DIR"
+mkdir -p "$OUTPUT_DIR"
+
+# --- Processamento Principal ---
+# Loop para processar cada uma das subpastas (domain, infrastructure, application).
+for FOLDER in "${SUB_FOLDERS[@]}"; do
+  
+  SOURCE_PATH="$PROJECT_DIR/$FOLDER"
+  OUTPUT_FILE="$OUTPUT_DIR/${FOLDER}.txt"
+  
+  echo "-----------------------------------------------------"
+  echo "Processando: $SOURCE_PATH"
+  echo "Salvando em: $OUTPUT_FILE"
+
+  # Verifica se a subpasta específica existe antes de tentar processá-la.
+  if [ ! -d "$SOURCE_PATH" ]; then
+    echo "Aviso: A subpasta '$SOURCE_PATH' não existe. Pulando."
+    continue # Pula para a próxima iteração do loop.
+  fi
+
+  # O comando principal. Vamos detalhá-lo:
+  # 1. (cd "$SOURCE_PATH" && ...): Executa os comandos dentro de um "subshell".
+  #    Isso nos permite entrar na pasta de origem temporariamente sem afetar
+  #    o diretório de trabalho principal do script.
+  # 2. find .: Inicia a busca a partir da pasta atual (que agora é $SOURCE_PATH).
+  # 3. -name 'build' -type d -prune: Se encontrar um diretório (-type d) chamado 'build',
+  #    não entre nele (-prune). Esta é a nossa regra de exclusão.
+  # 4. -o: Operador "OU".
+  # 5. -type f -print: Para qualquer outra coisa que não foi podada, se for um arquivo (-type f),
+  #    imprima seu caminho.
+  # 6. | grep -E '(build\.gradle|/src/)': Filtra a lista de arquivos impressa pelo find.
+  #    Apenas mantém os caminhos que contenham "build.gradle" OU "/src/".
+  # 7. | xargs cat: Pega a lista de arquivos filtrada e a passa para o comando `cat`,
+  #    que irá concatenar o conteúdo de todos eles.
+  # 8. > "../../$OUTPUT_FILE": Redireciona a saída final (todo o conteúdo concatenado)
+  #    para o nosso arquivo de texto de destino. Usamos "../../" para voltar dois níveis
+  #    de diretório (de ~/code/trade-risk-warden/domain para ~/code/).
+
+  (cd "$SOURCE_PATH" && find . -name 'build' -type d -prune -o -type f -print | grep -E '(build\.gradle|/src/)' | xargs cat > "../../$OUTPUT_FILE")
+
+  echo "Conteúdo de '$FOLDER' salvo com sucesso!"
+done
+
+echo "-----------------------------------------------------"
+echo "✅ Processo concluído com sucesso!"
+echo "Os arquivos foram salvos em na pasta '$OUTPUT_DIR'."

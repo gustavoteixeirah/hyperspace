@@ -21,14 +21,6 @@ yay -S --noconfirm --needed \
   nautilus sushi ffmpegthumbnailer \
   mpv evince imv
 
-# Install bluetooth controls
-yay -S --noconfirm --needed blueberry
-
-# Turn on bluetooth by default
-sudo systemctl enable --now bluetooth.service
-
-yay -S --noconfirm power-profiles-daemon
-
 yay -S --noconfirm --needed libreoffice obs-studio
 
 yay -S --noconfirm --needed pinta ||
@@ -59,5 +51,4 @@ newgrp docker
 
 sudo pacman -S $(pacman -Sgq nerd-fonts)
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

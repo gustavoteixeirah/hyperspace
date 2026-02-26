@@ -79,3 +79,6 @@ Disable screen saver:
 ```bash
 xset s off
 ```
+https://gist.github.com/gustavoteixeirah/688462ad6d43d5d2838edccb3fc11350
+
+https://gist.githubusercontent.com/gustavoteixeirah/688462ad6d43d5d2838edccb3fc11350/raw/f4ca10bf6716beb2423f5fb1323e3604fdb30bfc/gistfile1.txt

@@ -1,5 +1,12 @@
 # Hyperspace GT's setup files
 
+## Milkyway (AMD iGPU, sem GPU dedicada)
+
+```bash
+chmod +x /home/runner/work/hyperspace/hyperspace/milkyway/install_tools.sh
+/home/runner/work/hyperspace/hyperspace/milkyway/install_tools.sh
+```
+
 Arch installation
 ```bash
 pacman-key --init

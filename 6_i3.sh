@@ -12,5 +12,6 @@ cp -v "$REPO/dotfiles/i3/config" "$HOME/.config/i3/config"
 install -v -m 755 "$REPO/dotfiles/bin/wallpaper" "$HOME/.local/bin/wallpaper"
 
 i3 -C -c "$HOME/.config/i3/config"
-if pgrep -x i3 >/dev/null; then i3-msg reload >/dev/null && echo "i3 recarregado."; fi
+# restart (não reload) para rodar os exec_always (Caps Lock, wallpaper); mantém as janelas
+if pgrep -x i3 >/dev/null; then i3-msg restart >/dev/null || true; echo "i3 reiniciado."; fi
 echo "Pronto! Coisas só desta máquina vão em ~/.config/i3/config.d/*.conf"

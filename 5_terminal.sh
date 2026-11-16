@@ -29,6 +29,11 @@ for f in .zshrc .p10k.zsh; do
   [[ -f "$HOME/$f" ]] && cp "$HOME/$f" "$HOME/$f.bak-$ts"
   cp -v "$REPO/dotfiles/zsh/$f" "$HOME/$f"
 done
+mkdir -p "$HOME/.config/ghostty"
+f="$HOME/.config/ghostty/config.ghostty"
+[[ -f "$f" ]] && cp "$f" "$f.bak-$ts"
+cp -v "$REPO/dotfiles/ghostty/config.ghostty" "$f"
+
 touch "$HOME/.zshrc.local"   # coloque segredos/variáveis da máquina aqui
 
 [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$(command -v zsh)" ]] || chsh -s "$(command -v zsh)"

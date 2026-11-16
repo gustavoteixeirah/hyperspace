@@ -1,0 +1,4 @@
+# Ghostty — docs: `ghostty +show-config --default --docs` ou https://ghostty.org/docs/config
+
+# Sem a barra de título/abas do GTK (o i3 já gerencia as janelas)
+window-decoration = none

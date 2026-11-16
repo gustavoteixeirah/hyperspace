@@ -1,0 +1,13 @@
+#!/bin/sh
+# wallpaper            -> restaura o último (ou sorteia um se não houver)
+# wallpaper random     -> sorteia um da pasta
+# wallpaper <arquivo>  -> usa esse arquivo
+DIR="$HOME/code/hyperspace/wallpapers"
+STATE="$HOME/.cache/wallpaper"
+pick() { find "$DIR" -maxdepth 1 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) | shuf -n1; }
+case "$1" in
+  random) img=$(pick) ;;
+  "")     img=$(cat "$STATE" 2>/dev/null); [ -f "$img" ] || img=$(pick) ;;
+  *)      img=$(realpath "$1") ;;
+esac
+[ -n "$img" ] && feh --no-fehbg --bg-fill "$img" && echo "$img" > "$STATE"

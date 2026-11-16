@@ -89,3 +89,14 @@ bash ~/code/hyperspace/5_terminal.sh
 ```
 Instala zsh, fzf, ghostty, oh-my-zsh, os plugins (autosuggestions, syntax-highlighting, history-substring-search) e o Powerlevel10k, e copia `dotfiles/zsh/.zshrc` e `.p10k.zsh` para a home (com backup).
 Segredos e variáveis específicas da máquina vão em `~/.zshrc.local` (não versionado).
+
+### i3 (Caps Lock = mod, terminal rápido, gaps)
+```bash
+bash ~/code/hyperspace/6_i3.sh
+```
+Copia `dotfiles/i3/config` para `~/.config/i3/config` (com backup) e o script `wallpaper` para `~/.local/bin`.
+- **Caps Lock** é o `$mod` (sozinho, no Mod3); a tecla **Windows** fica livre.
+- **Win+Enter** abre um terminal flutuante no centro, por cima de tudo; **Esc** fecha.
+- Gaps, sem bordas, `$mod+Shift+g` ajusta gaps, `$mod+Shift+w` troca o wallpaper.
+- Funciona em teclado US e ABNT2 (a tecla `;`/`ç` é usada via keycode).
+- Coisas específicas da máquina (ex.: lock de tela no notebook) vão em `~/.config/i3/config.d/*.conf` (não versionado).

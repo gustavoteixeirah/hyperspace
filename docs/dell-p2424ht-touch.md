@@ -68,9 +68,11 @@ xinput list-props "pointer:Siliconworks SiW HID Touch Controller" | grep 'Coordi
 # com o layout atual, o esperado é ~ 0.558 0 0.251 / 0 0.429 0.571 / 0 0 1
 ```
 
-- **O toque parou de cair no lugar depois de reconectar o USB ou religar o monitor:** o
-  dispositivo foi recriado e perdeu o mapeamento. Rode `dell-touch-map` ou dê reload no i3
-  (`$mod+Shift+r`/`c`).
+- **O toque parou de cair no lugar** (depois de reconectar o USB, religar o monitor ou de um
+  `yay -Syu`): o X zerou a `Coordinate Transformation Matrix` (volta à identidade). O
+  `dotfiles/bin/input-watch` (iniciado pelo i3) confere a cada 3s e reaplica o `dell-touch-map`
+  sozinho. Se o vigia não estiver rodando (`pgrep -f input-watch`), rode `dell-touch-map` na mão ou
+  `i3-msg restart` (o `reload` não roda os `exec_always`).
 - **Mudou a posição dos monitores ou a saída:** rode `dell-touch-map <saída>` e atualize a
   saída em `~/.config/i3/config.d/dell-touch.conf` (ou rode `7_dell_touch.sh <saída>` de novo).
 - **Monitor girado (pivot):** primeiro gire com `xrandr --output DP-2 --rotate left`, depois rode

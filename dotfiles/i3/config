@@ -11,7 +11,9 @@
 
 # $mod = APENAS o Caps Lock (Caps -> Hyper_L no Mod3). A tecla Windows (Mod4) fica livre.
 set $mod Mod3
-exec_always --no-startup-id sh -c "setxkbmap -option '' -option terminate:ctrl_alt_bksp -option caps:hyper && xmodmap -e 'add mod3 = Hyper_L'"
+# keyboard-setup aplica o Caps Lock em TODOS os teclados; input-watch reaplica (e o touch do Dell)
+# quando o X perde a config (dispositivo reconectado, depois de update...). Ver dotfiles/bin/input-watch
+exec_always --no-startup-id ~/.local/bin/input-watch
 
 # Terminal rápido: Win+Enter abre flutuando no centro, por cima de tudo; Esc fecha
 bindsym Mod4+Return exec --no-startup-id ghostty --class=dev.quickterm --gtk-single-instance=false --confirm-close-surface=false --keybind=escape=close_surface

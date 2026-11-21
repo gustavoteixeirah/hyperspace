@@ -10,6 +10,7 @@ mkdir -p "$HOME/.config/i3/config.d" "$HOME/.local/bin"
 [[ -f "$HOME/.config/i3/config" ]] && cp "$HOME/.config/i3/config" "$HOME/.config/i3/config.bak-$ts"
 cp -v "$REPO/dotfiles/i3/config" "$HOME/.config/i3/config"
 install -v -m 755 "$REPO/dotfiles/bin/wallpaper" "$HOME/.local/bin/wallpaper"
+for f in keyboard-setup input-watch; do install -v -m 755 "$REPO/dotfiles/bin/$f" "$HOME/.local/bin/$f"; done
 
 i3 -C -c "$HOME/.config/i3/config"
 # restart (não reload) para rodar os exec_always (Caps Lock, wallpaper); mantém as janelas

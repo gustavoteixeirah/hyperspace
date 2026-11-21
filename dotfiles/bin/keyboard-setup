@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Caps Lock = Hyper no Mod3 (o $mod do i3) em TODOS os teclados do X.
+#
+# Por que em todos: o X tem vários "teclados" (o HyperX aparece 2x, teclas de mídia, o mouse G502,
+# a caixa de som com botão de volume...). Ao usar um deles, o X troca o mapa ativo pelo daquele
+# dispositivo; se só o principal tiver o Caps Lock configurado, os atalhos do i3 param.
+#
+# Uso: keyboard-setup   (o input-watch chama isto sempre que precisa reaplicar)
+set -u
+
+apply() {
+  setxkbmap -option '' -option terminate:ctrl_alt_bksp -option caps:hyper || return 1
+  xmodmap -e 'add mod3 = Hyper_L' 2>/dev/null
+  local km; km=$(mktemp --suffix=.xkb)
+  if xkbcomp -w0 "$DISPLAY" "$km" 2>/dev/null; then
+    # copia o mapa do teclado principal para cada teclado "escravo"
+    for id in $(xinput list --short | grep 'slave  keyboard' | grep -v XTEST | sed -n 's/.*id=\([0-9]*\).*/\1/p'); do
+      xkbcomp -w0 -i "$id" "$km" "$DISPLAY" 2>/dev/null
+    done
+  fi
+  rm -f "$km"
+}
+
+apply

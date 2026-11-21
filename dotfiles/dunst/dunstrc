@@ -1,0 +1,39 @@
+# dunst — notificações (Catppuccin Mocha, combina com a polybar)
+[global]
+    follow = mouse
+    origin = bottom-right
+    offset = (14, 46)
+    width = (300, 460)
+    height = (0, 600)
+    corner_radius = 10
+    frame_width = 1
+    frame_color = "#45475a"
+    separator_color = frame
+    gap_size = 6
+    padding = 12
+    horizontal_padding = 14
+    font = AtkynsonMono Nerd Font Propo 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    word_wrap = yes
+    icon_position = off
+    mouse_left_click = close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    highlight = "#cba6f7"
+    timeout = 10
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#f38ba8"
+    timeout = 0

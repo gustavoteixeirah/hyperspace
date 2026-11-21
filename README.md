@@ -96,6 +96,10 @@ bash ~/code/hyperspace/6_i3.sh
 ```
 Copia `dotfiles/i3/config` para `~/.config/i3/config` (com backup) e o script `wallpaper` para `~/.local/bin`.
 - **Caps Lock** é o `$mod` (sozinho, no Mod3); a tecla **Windows** fica livre.
+  O `keyboard-setup` aplica isso em **todos** os "teclados" que o X enxerga (o HyperX aparece 2x, teclas de mídia,
+  mouse, caixa de som…); senão, ao usar um deles o X troca o mapa e os atalhos param. O `input-watch` (iniciado pelo i3)
+  reaplica sozinho quando o X perde a config (dispositivo reconectado, depois de `yay -Syu`) — e também o touch do Dell.
+  Se os atalhos pararem mesmo assim: `keyboard-setup` num terminal.
 - **Win+Enter** abre um terminal flutuante no centro, por cima de tudo; **Esc** fecha.
 - Gaps, sem bordas, `$mod+Shift+g` ajusta gaps, `$mod+Shift+w` troca o wallpaper.
 - Funciona em teclado US e ABNT2 (a tecla `;`/`ç` é usada via keycode).

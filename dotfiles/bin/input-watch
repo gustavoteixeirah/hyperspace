@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Vigia de entrada (iniciado pelo i3): mantém
+#   - o Caps Lock como $mod do i3 em todos os teclados  -> keyboard-setup
+#   - o touch do monitor Dell preso à tela dele           -> dell-touch-map (se instalado)
+# O X perde essas configurações quando um dispositivo é (re)conectado ou reinicializado
+# (ex.: depois de um yay -Syu). A cada 3s, confere:
+#   1. a lista de dispositivos de entrada mudou?       -> reaplica tudo
+#   2. o Caps Lock deixou de ser Hyper no Mod3?         -> reaplica o teclado
+#   3. a matriz do touch voltou à identidade?           -> reaplica o touch
+# Não lê teclas digitadas; só consulta a configuração (xinput/xmodmap).
+set -u
+BIN="$HOME/.local/bin"
+TOUCH="Siliconworks SiW HID Touch Controller"
+
+pidf="${XDG_RUNTIME_DIR:-/tmp}/input-watch.pid"
+[ -f "$pidf" ] && kill "$(cat "$pidf")" 2>/dev/null
+echo $$ >"$pidf"
+
+kb()       { "$BIN/keyboard-setup"; }
+kb_ok()    { xmodmap -pm 2>/dev/null | grep -q '^mod3.*Hyper_L'; }
+has_touch(){ [ -x "$BIN/dell-touch-map" ] && xinput list --name-only 2>/dev/null | grep -qx "$TOUCH"; }
+touch_map(){ has_touch && "$BIN/dell-touch-map"; }
+touch_ok() {
+  has_touch || return 0
+  ! xinput list-props "pointer:$TOUCH" 2>/dev/null | grep -q 'Coordinate Transformation Matrix.*1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000'
+}
+devices()  { xinput list --short 2>/dev/null | sed 's/[[:space:]]\+/ /g'; }
+
+kb; touch_map
+last=$(devices)
+while sleep 3; do
+  now=$(devices)
+  if [ "$now" != "$last" ]; then
+    sleep 1 # deixa o X terminar de configurar o dispositivo novo
+    kb; touch_map
+    last=$(devices)
+    continue
+  fi
+  kb_ok || kb
+  touch_ok || touch_map
+done

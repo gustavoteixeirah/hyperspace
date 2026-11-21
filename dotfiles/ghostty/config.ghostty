@@ -2,3 +2,6 @@
 
 # Sem a barra de título/abas do GTK (o i3 já gerencia as janelas)
 window-decoration = none
+
+# Fecha na hora, sem perguntar "tem certeza?" (mesmo com processo rodando)
+confirm-close-surface = false

@@ -109,3 +109,11 @@ bash ~/code/hyperspace/7_dell_touch.sh   # padrão DP-2; passe outra saída se p
 Não precisa de driver (o kernel usa `hid-multitouch`). O script instala o `xorg-xinput` e prende o touch
 à tela do Dell com `xinput map-to-output` (via `~/.config/i3/config.d/dell-touch.conf`).
 Detalhes e troubleshooting: [docs/dell-p2424ht-touch.md](docs/dell-p2424ht-touch.md).
+
+### Polybar (no lugar do i3bar/i3status)
+```bash
+bash ~/code/hyperspace/8_polybar.sh   # rode depois do 6_i3.sh
+```
+Barra flutuante (Catppuccin), igual nos dois monitores: CPU/temp, RAM livre, GPU NVIDIA, disco, rede + ping,
+dólar em R$, tempo em Santo Ângelo/RS e updates do pacman/AUR. Clique num módulo = notificação (dunst) com legenda e detalhes.
+Detalhes: [docs/polybar.md](docs/polybar.md).

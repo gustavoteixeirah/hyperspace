@@ -100,3 +100,12 @@ Copia `dotfiles/i3/config` para `~/.config/i3/config` (com backup) e o script `w
 - Gaps, sem bordas, `$mod+Shift+g` ajusta gaps, `$mod+Shift+w` troca o wallpaper.
 - Funciona em teclado US e ABNT2 (a tecla `;`/`ç` é usada via keycode).
 - Coisas específicas da máquina (ex.: lock de tela no notebook) vão em `~/.config/i3/config.d/*.conf` (não versionado).
+
+### Monitor touch Dell P2424HT
+```bash
+bash ~/code/hyperspace/7_dell_touch.sh   # padrão DP-2; passe outra saída se precisar
+```
+**Precisa do cabo USB** (USB-A → USB-C upstream do monitor) além do DP. O touch chega por USB.
+Não precisa de driver (o kernel usa `hid-multitouch`). O script instala o `xorg-xinput` e prende o touch
+à tela do Dell com `xinput map-to-output` (via `~/.config/i3/config.d/dell-touch.conf`).
+Detalhes e troubleshooting: [docs/dell-p2424ht-touch.md](docs/dell-p2424ht-touch.md).

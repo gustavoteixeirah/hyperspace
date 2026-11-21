@@ -1,0 +1,6 @@
+#!/bin/sh
+# Prende o touchscreen do Dell P2424HT (Siliconworks SiW) à saída DP-2
+OUTPUT="${1:-DP-2}"
+for n in "Siliconworks SiW HID Touch Controller" "Siliconworks SiW HID Touch Controller Mouse"; do
+  xinput map-to-output "pointer:$n" "$OUTPUT" 2>/dev/null
+done

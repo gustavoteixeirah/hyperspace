@@ -1,10 +1,23 @@
 #!/usr/bin/env bash
-# i3: Caps Lock = $mod, Win+Enter = terminal rápido, gaps, sem bordas, wallpaper
+# i3: Caps Lock = $mod, Win+Enter = terminal rápido, gaps, sem bordas, wallpaper, PrintScreen = flameshot
 # Uso: bash ~/code/hyperspace/6_i3.sh   (pode rodar de novo sem problema)
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ts="$(date +%Y%m%d%H%M%S)"
+
+# flameshot: PrintScreen = print recortando área
+sudo pacman -S --needed --noconfirm flameshot
+# abre sem área pré-selecionada (clicar e arrastar), em vez de lembrar a última região
+fs_ini="$HOME/.config/flameshot/flameshot.ini"
+mkdir -p "$(dirname "$fs_ini")"
+if grep -q '^saveLastRegion=' "$fs_ini" 2>/dev/null; then
+  sed -i 's/^saveLastRegion=.*/saveLastRegion=false/' "$fs_ini"
+elif grep -q '^\[General\]' "$fs_ini" 2>/dev/null; then
+  sed -i '/^\[General\]/a saveLastRegion=false' "$fs_ini"
+else
+  printf '[General]\nsaveLastRegion=false\n' >> "$fs_ini"
+fi
 
 mkdir -p "$HOME/.config/i3/config.d" "$HOME/.local/bin"
 [[ -f "$HOME/.config/i3/config" ]] && cp "$HOME/.config/i3/config" "$HOME/.config/i3/config.bak-$ts"

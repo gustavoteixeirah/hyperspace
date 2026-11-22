@@ -102,6 +102,7 @@ Copia `dotfiles/i3/config` para `~/.config/i3/config` (com backup) e o script `w
   Se os atalhos pararem mesmo assim: `keyboard-setup` num terminal.
 - **Win+Enter** abre um terminal flutuante no centro, por cima de tudo; **Esc** fecha.
 - Gaps, sem bordas, `$mod+Shift+g` ajusta gaps, `$mod+Shift+w` troca o wallpaper.
+- **PrintScreen** tira print recortando uma área (flameshot); depois **Ctrl+C** copia, **Ctrl+S** salva.
 - Funciona em teclado US e ABNT2 (a tecla `;`/`ç` é usada via keycode).
 - Coisas específicas da máquina (ex.: lock de tela no notebook) vão em `~/.config/i3/config.d/*.conf` (não versionado).
 

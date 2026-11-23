@@ -73,7 +73,14 @@ xinput list-props "pointer:Siliconworks SiW HID Touch Controller" | grep 'Coordi
   `dotfiles/bin/input-watch` (iniciado pelo i3) confere a cada 3s e reaplica o `dell-touch-map`
   sozinho. Se o vigia não estiver rodando (`pgrep -f input-watch`), rode `dell-touch-map` na mão ou
   `i3-msg restart` (o `reload` não roda os `exec_always`).
-- **Mudou a posição dos monitores ou a saída:** rode `dell-touch-map <saída>` e atualize a
+- **Mexeu no layout (arandr):** o `input-watch` percebe a mudança (`xrandr --listactivemonitors`) e
+  remapeia o touch + reinicia a polybar sozinho. Para o layout sobreviver ao reboot, salve no arandr
+  (Layout → Salvar como) em `~/.screenlayout/hyperspace.sh`; o i3 roda esse script no login via
+  `~/.config/i3/config.d/monitors.conf`. Os dois estão no repo (`dotfiles/screenlayout/hyperspace.sh`,
+  `dotfiles/i3/config.d/monitors.conf`) e são instalados pelo `7_dell_touch.sh`. Layout atual:
+  `xrandr --output DP-0 --mode 3440x1440 --rate 99.98 --pos 0x0 --output DP-2 --mode 1920x1080 --rate 60 --pos 825x1440`
+  (ultrawide em cima, Dell embaixo).
+- **Mudou a saída do Dell (ex.: HDMI):** rode `dell-touch-map <saída>` e atualize a
   saída em `~/.config/i3/config.d/dell-touch.conf` (ou rode `7_dell_touch.sh <saída>` de novo).
 - **Monitor girado (pivot):** primeiro gire com `xrandr --output DP-2 --rotate left`, depois rode
   `dell-touch-map`. O map-to-output já leva a rotação em conta.

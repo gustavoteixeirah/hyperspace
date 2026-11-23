@@ -7,6 +7,7 @@
 #   1. a lista de dispositivos de entrada mudou?       -> reaplica tudo
 #   2. o Caps Lock deixou de ser Hyper no Mod3?         -> reaplica o teclado
 #   3. a matriz do touch voltou à identidade?           -> reaplica o touch
+#   4. o layout dos monitores mudou (arandr/xrandr)?    -> reaplica o touch e reinicia a polybar
 # Não lê teclas digitadas; só consulta a configuração (xinput/xmodmap).
 set -u
 BIN="$HOME/.local/bin"
@@ -25,10 +26,20 @@ touch_ok() {
   ! xinput list-props "pointer:$TOUCH" 2>/dev/null | grep -q 'Coordinate Transformation Matrix.*1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000'
 }
 devices()  { xinput list --short 2>/dev/null | sed 's/[[:space:]]\+/ /g'; }
+# --listactivemonitors só lê a config atual (não força o X a reprobar as saídas)
+layout()   { xrandr --listactivemonitors 2>/dev/null; }
 
 kb; touch_map
 last=$(devices)
+lastLayout=$(layout)
 while sleep 3; do
+  nowLayout=$(layout)
+  if [ "$nowLayout" != "$lastLayout" ]; then
+    sleep 1 # arandr aplica as saídas uma de cada vez
+    lastLayout=$(layout)
+    touch_map
+    [ -x "$HOME/.config/polybar/launch.sh" ] && pgrep -x polybar >/dev/null && setsid -f "$HOME/.config/polybar/launch.sh" >/dev/null 2>&1
+  fi
   now=$(devices)
   if [ "$now" != "$last" ]; then
     sleep 1 # deixa o X terminar de configurar o dispositivo novo

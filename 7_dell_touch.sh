@@ -14,6 +14,11 @@ install -v -m 755 "$REPO/dotfiles/bin/dell-touch-map" "$HOME/.local/bin/dell-tou
 sed "s|dell-touch-map\$|dell-touch-map $OUTPUT|" "$REPO/dotfiles/i3/config.d/dell-touch.conf" \
   > "$HOME/.config/i3/config.d/dell-touch.conf"
 
+# layout dos monitores (ultrawide em cima, Dell embaixo), salvo pelo arandr; o i3 aplica no login
+mkdir -p "$HOME/.screenlayout"
+install -v -m 755 "$REPO/dotfiles/screenlayout/hyperspace.sh" "$HOME/.screenlayout/hyperspace.sh"
+cp -v "$REPO/dotfiles/i3/config.d/monitors.conf" "$HOME/.config/i3/config.d/monitors.conf"
+
 if ! grep -qi 'SiW HID Touch' /proc/bus/input/devices; then
   echo "AVISO: touch não detectado. Ligue o cabo USB (USB-A -> USB-C upstream) do monitor ao PC."
 fi

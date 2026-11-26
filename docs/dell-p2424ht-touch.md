@@ -41,7 +41,7 @@ Dispositivos xinput: `Siliconworks SiW HID Touch Controller` e `Siliconworks SiW
 ## O problema com dois monitores e a solução
 
 No X11, um touchscreen é mapeado para o **framebuffer inteiro** por padrão (aqui: ultrawide
-DP-0 3440x1440 em +0+0, DP-4 1920x1080 à direita e Dell DP-2 1920x1080 embaixo). Por isso o toque cai na posição
+DP-0 3440x1440 em +0+0 e Dell DP-2 1920x1080 à direita, em +3440+243). Por isso o toque cai na posição
 errada. A solução é prender o touch à saída do Dell com `xinput map-to-output`, que calcula a
 `Coordinate Transformation Matrix`.
 
@@ -65,7 +65,7 @@ xrandr | grep ' connected'
 # mapeamento aplicado?
 xinput list | grep -i siw
 xinput list-props "pointer:Siliconworks SiW HID Touch Controller" | grep 'Coordinate Transformation'
-# com o layout atual (3 monitores, framebuffer 5360x2520), o esperado é ~ 0.358 0 0.154 / 0 0.429 0.571 / 0 0 1
+# com o layout atual (2 monitores lado a lado, framebuffer 5360x1440), o esperado é ~ 0.358 0 0.642 / 0 0.75 0.169 / 0 0 1
 ```
 
 - **O toque parou de cair no lugar** (depois de reconectar o USB, religar o monitor ou de um
@@ -80,13 +80,12 @@ xinput list-props "pointer:Siliconworks SiW HID Touch Controller" | grep 'Coordi
   `dotfiles/i3/config.d/monitors.conf`) e são instalados pelo `7_dell_touch.sh`. O script é uma versão
   editada do que o arandr salva: marca o DP-0 como primário e só configura as saídas conectadas
   (um `xrandr` com um monitor desligado falharia inteiro). Ao mudar o layout no arandr, copie as
-  posições (`--pos`) para ele em vez de sobrescrevê-lo. Layout atual (2026-11-24, três monitores):
+  posições (`--pos`) para ele em vez de sobrescrevê-lo. Layout atual (2026-11-26, dois monitores lado a lado):
 
   | Saída | Monitor | Modo | Posição |
   |---|---|---|---|
   | DP-0 | ultrawide (primário, polybar com tray) | 3440x1440 @ 99.98 | `0x0` |
-  | DP-4 | 1920x1080 (531mm x 299mm) | 1920x1080 @ 119.98 | `3440x239` (à direita do ultrawide) |
-  | DP-2 | Dell P2424HT touch | 1920x1080 @ 60 | `825x1440` (embaixo do ultrawide) |
+  | DP-2 | Dell P2424HT touch | 1920x1080 @ 60 | `3440x243` (à direita do ultrawide) |
 - **Mudou a saída do Dell (ex.: HDMI):** rode `dell-touch-map <saída>` e atualize a
   saída em `~/.config/i3/config.d/dell-touch.conf` (ou rode `7_dell_touch.sh <saída>` de novo).
 - **Monitor girado (pivot):** primeiro gire com `xrandr --output DP-2 --rotate left`, depois rode

@@ -18,7 +18,11 @@ Equivalent of `apt-get update && apt-get upgrade` in Arch:
 sudo pacman -Syy && sudo pacman -Syu
 ```
 
-Keyboard layout for legion:
+### Legion (notebook) na tela do hyperspace
+Sunshine no Legion + Moonlight aqui, com ultrawide virtual 3440x1440: `bash 9_legion_remote.sh`.
+Tudo documentado em [docs/legion-remote-desktop.md](docs/legion-remote-desktop.md) (`ssh legion` = <ip-da-lan>).
+
+Keyboard layout for legion (teclado físico do notebook):
 ```bash
 setxkbmap -model abnt2 -layout br -variant abnt2
 ```

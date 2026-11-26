@@ -1,0 +1,5 @@
+# Trecho adicionado a /etc/greetd/cosmic-greeter.toml no Legion (login automático no i3).
+# Só vale no primeiro login após o boot; depois de sair, volta o cosmic-greeter normal.
+[initial_session]
+command = "startx /usr/bin/env XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=i3 XDG_SESSION_DESKTOP=i3 i3"
+user = "teixeira"

@@ -1,0 +1,21 @@
+#!/bin/sh
+# Escolhe a tela do Legion:
+#   legion-display ultrawide  -> só o ultrawide virtual 3440x1440 (DP-0), para o Moonlight (padrão)
+#   legion-display notebook   -> só a tela do notebook (DP-4), para usar ele na mão
+mode="${1:-ultrawide}"
+connected() { xrandr --query | grep -q "^$1 connected"; }
+case "$mode" in
+  ultrawide)
+    if connected DP-0; then
+      xrandr --output DP-0 --primary --mode 3440x1440 --rate 99.98 --pos 0x0 --output DP-4 --off \
+        || xrandr --output DP-0 --primary --mode 3440x1440 --pos 0x0 --output DP-4 --off
+    else
+      echo "DP-0 (ultrawide virtual) não aparece; mantendo a tela do notebook" >&2
+      xrandr --output DP-4 --auto --primary
+    fi ;;
+  notebook)
+    xrandr --output DP-4 --primary --mode 1920x1080 --rate 120 --pos 0x0 --output DP-0 --off ;;
+  *) echo "uso: legion-display [ultrawide|notebook]" >&2; exit 1 ;;
+esac
+# a captura do Sunshine segue a tela ativa
+systemctl --user restart app-dev.lizardbyte.app.Sunshine.service 2>/dev/null || true

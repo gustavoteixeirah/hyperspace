@@ -20,7 +20,7 @@ sudo pacman -Syy && sudo pacman -Syu
 
 ### Legion (notebook) na tela do hyperspace
 Sunshine no Legion + Moonlight aqui, com ultrawide virtual 3440x1440: `bash 9_legion_remote.sh`.
-Tudo documentado em [docs/legion-remote-desktop.md](docs/legion-remote-desktop.md) (`ssh legion` = <ip-da-lan>).
+Tudo documentado em [docs/legion-remote-desktop.md](docs/legion-remote-desktop.md) (`ssh legion`).
 
 Keyboard layout for legion (teclado físico do notebook):
 ```bash
@@ -75,7 +75,7 @@ iwctl station  wlan0  connect TP-Link_0AF4
 
 check devices connected in my network
 ```bash
-nmap -sP -n <ip-da-lan>
+nmap -sP -n <sua-rede>/24
 ```
 
 

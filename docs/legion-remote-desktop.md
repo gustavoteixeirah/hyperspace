@@ -9,7 +9,7 @@ entre o Legion e os outros monitores sem travar.
 
 | | hyperspace (desktop) | legion (notebook) |
 |---|---|---|
-| IP na LAN | <ip-da-lan> | <ip-da-lan> (`ssh legion`) |
+| Acesso | — | `ssh legion` (alias no `~/.ssh/config`, IP fixo na LAN) |
 | GPU | RTX 3070 | RTX 3060 Mobile, só a NVIDIA (sem iGPU no X), driver `nvidia-open` |
 | Sessão | i3 / X11 | i3 / X11, iniciado por `startx` a partir do `cosmic-greeter` (greetd) |
 | $mod do i3 | Caps Lock (Hyper, Mod3) | **Alt (Mod1)**, ver "Teclado" |
@@ -19,9 +19,9 @@ entre o Legion e os outros monitores sem travar.
 ## TL;DR (refazer do zero)
 
 ```bash
-bash ~/code/hyperspace/9_legion_remote.sh   # roda no hyperspace; pede sudo daqui e do Legion
+LEGION=usuario@ip-do-legion bash ~/code/hyperspace/9_legion_remote.sh   # roda no hyperspace; pede sudo daqui e do Legion
 ```
-Depois: reiniciar o Legion → abrir o Moonlight → adicionar o host `<ip-da-lan>` (a busca automática
+Depois: reiniciar o Legion → abrir o Moonlight → adicionar o host pelo IP do Legion (a busca automática
 não acha, falta avahi no Legion) → parear (ver "Pareamento") → abrir **Desktop**.
 
 Arquivos no repo (`dotfiles/legion/`) → onde ficam:
@@ -29,7 +29,7 @@ Arquivos no repo (`dotfiles/legion/`) → onde ficam:
 | Repo | Destino | O que faz |
 |---|---|---|
 | `xorg/20-nvidia-virtual-ultrawide.conf` | Legion `/etc/X11/xorg.conf.d/` | finge um monitor ultrawide ligado no DP-0 |
-| `edid/asus-xg35v.edid` | Legion `/etc/X11/edid/` | EDID do ultrawide real do hyperspace |
+| (gerado na hora) | Legion `/etc/X11/edid/asus-xg35v.edid` | EDID do ultrawide real do hyperspace, lido do DP-0 pelo script (não fica no repo: tem o número de série do monitor) |
 | `xorg/30-sunshine-keyboard-us.conf` | Legion `/etc/X11/xorg.conf.d/` | layout US no teclado virtual do Sunshine |
 | `bin/legion-display` | Legion `~/.local/bin/` | alterna ultrawide virtual ↔ tela do notebook |
 | `i3/remote.conf` | Legion `~/.config/i3/config.d/` | i3 liga o ultrawide virtual ao iniciar |
@@ -80,8 +80,9 @@ Arquivos no repo (`dotfiles/legion/`) → onde ficam:
   `Streaming display: DP-0 with res 3440x1440` e `Found HEVC encoder: hevc_nvenc`.
 - Erros que podem ser ignorados: `Failed to gain CAP_SYS_ADMIN` (é da captura KMS, não usada) e
   `Failed to create client: Daemon not running` (avahi; só afeta a descoberta automática).
-- Painel web: `https://<ip-da-lan>:47990`. Credenciais definidas com `sunshine --creds USER SENHA`.
-- Firewall (ufw) do Legion já libera tudo vindo de `<ip-da-lan>`.
+- Painel web: `https://<ip-do-legion>:47990`, só na rede local. Credenciais definidas com `sunshine --creds USER SENHA`
+  (use uma senha forte; nunca comite).
+- O firewall do Legion precisa liberar as portas do Sunshine (TCP 47984, 47989, 47990, 48010; UDP 47998–48000) só para a LAN.
 - Entrada: o pacote instala a regra udev de `/dev/uinput`; `uinput` carregado no boot via
   `/etc/modules-load.d/uinput.conf`.
 

@@ -3,12 +3,12 @@
 # com o Legion desenhando numa tela ultrawide virtual 3440x1440. Detalhes: docs/legion-remote-desktop.md
 #
 # Roda NO HYPERSPACE. Pede a senha do sudo daqui (pacman) e a do Legion (via ssh -t).
-#   bash 9_legion_remote.sh            # IP padrão <ip-da-lan>
 #   LEGION=usuario@ip-do-legion bash 9_legion_remote.sh
+# O EDID do ultrawide é lido na hora do monitor DP-0 deste PC (não fica no repo).
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")" && pwd)"
 L="$REPO/dotfiles/legion"
-LEGION="${LEGION:-teixeira@<ip-da-lan>}"
+LEGION="${LEGION:?defina LEGION=usuario@ip-do-legion}"
 HOST="${LEGION#*@}"
 
 echo "== 1. SSH por chave (alias 'legion')"
@@ -19,7 +19,12 @@ grep -q '^Host legion$' "$HOME/.ssh/config" || printf '\nHost legion\n    HostNa
 
 echo "== 2. Arquivos para o Legion"
 ssh legion 'mkdir -p /tmp/legion-remote ~/.local/bin ~/.config/i3/config.d ~/.config/sunshine'
-scp -q "$L"/xorg/*.conf "$L"/edid/asus-xg35v.edid "$L"/greetd/initial_session.toml legion:/tmp/legion-remote/
+EDID="$(mktemp)"
+xrandr --verbose | awk '/^DP-0 /{f=1} f&&/EDID:/{e=1;next} e&&/^[ \t]+[0-9a-f]+$/{gsub(/[ \t]/,"");printf "%s",$0;next} e{exit}' \
+  | python3 -c 'import sys;open(sys.argv[1],"wb").write(bytes.fromhex(sys.stdin.read().strip()))' "$EDID"
+[ -s "$EDID" ] || { echo "Não consegui ler o EDID do DP-0 (o ultrawide está ligado?)"; exit 1; }
+scp -q "$L"/xorg/*.conf "$L"/greetd/initial_session.toml legion:/tmp/legion-remote/
+scp -q "$EDID" legion:/tmp/legion-remote/asus-xg35v.edid; rm -f "$EDID"
 scp -q "$L/bin/legion-display" legion:.local/bin/legion-display
 scp -q "$L/i3/remote.conf" legion:.config/i3/config.d/remote.conf
 scp -q "$L/sunshine/sunshine.conf" legion:.config/sunshine/sunshine.conf
